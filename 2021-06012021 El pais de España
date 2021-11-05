@@ -1,0 +1,12 @@
+import requests
+from bs4 import BeautifulSoup
+import numpy as np
+import pandas as pd
+import time
+url = "https://elpais.com/elpais/inenglish.html"
+r1 = requests.get(url)
+r1.status_code
+coverpage = r1.content
+soup1 = BeautifulSoup(coverpage, 'html5lib')
+coverpage_news = soup1.find_all('h2', class_='articulo-titulo')
+len(coverpage_news)
